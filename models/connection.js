@@ -1,16 +1,14 @@
+// Import mongoose
+const mongoose = require('mongoose')
 
-module.exports = function(MongoClient){    
-
-    MongoClient.connect('mongodb://127.0.0.1:27017',{useUnifiedTopology:true}, function(err,client){
-        var db = client.db('Okey');
-        if(err){
-            throw err;
-        }
-        db.collection('Okey').find().toArray(function(err, result){
-            if(err){
-                throw err;
-            }
-            console.log(result)
-        })
+    mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology:true})
+    
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'))
+    db.once('open', function(){
+         console.log('database connected')
     })
+
+module.exports = {
+    mongoose
 }
