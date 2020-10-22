@@ -1,11 +1,11 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch,Route,Link} from "react-router-dom"
-import Shops from '../pages/Shops'
-import Articles from '../pages/Articles'
-import Home from '../pages/Home'
+import Shops from '../../pages/Shops'
+import Articles from '../../pages/Articles'
+import Home from '../../pages/Home'
 import LoginNavigation from './LoginNavigation'
 import LoginForm from './LoginForm'
-import PostArticle from './PostArticle'
+import PostArticle from '../PostArticle'
 
 // CSS
 import './Header.css'
