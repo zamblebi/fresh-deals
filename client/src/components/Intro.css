@@ -1,0 +1,27 @@
+.intro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro ul{
+    list-style: none;
+}
+
+.intro .intro_town{
+    display: flex;
+    /* justify-content: space-between; */
+    padding-left: 0;
+}
+
+.intro_town li{
+    padding: 10px 70px 0 0;
+}
+.intro .offer_presentation{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+}
+.offer_presentation li{
+    padding-top: 30px;
+}
