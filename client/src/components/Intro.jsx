@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './Intro.css'
+import {Link} from 'react-router-dom'
 const Intro = () => {
     return (
         <div className="intro">
@@ -18,7 +19,7 @@ const Intro = () => {
                         <li>Seguela</li>
                     </div>
                 </ul>
-                <button>Publiez votre annonce gratuitement</button>
+                <Link to="/post_article">Publiez votre annonce gratuitement</Link>
             </div>
             <div>
                 <ul className="offer_presentation">
