@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import './Intro.css'
 import {Link} from 'react-router-dom'
+import Carousel from './Carousel/Courasel'
 const Intro = () => {
     return (
         <div className="intro">
             <div>
+                <Carousel/>
                 <h2>Site d'annonce gratuit dans le monde</h2>
                 <h4>Choisir une ville</h4>
                 <ul className="intro_town">
