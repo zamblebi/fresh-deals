@@ -1,12 +1,12 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch,Route,Link} from "react-router-dom"
-import Shops from '../pages/Shops'
-import Articles from '../pages/Articles'
-import Home from '../pages/Home'
+import Shops from '../../pages/Shops'
+import Articles from '../../pages/Articles'
+import Home from '../../pages/Home'
 import LoginNavigation from './LoginNavigation'
 import LoginForm from './LoginForm'
-import PostArticle from './PostArticle'
-
+import PostArticle from '../PostArticle'
+import basket from './icons/basket.svg'
 // CSS
 import './Header.css'
 
@@ -16,9 +16,8 @@ const HeaderMenu = () => {
         <Router>
             <div className="navigation_menu">
                 <ul>
-                    <li>
-                        <Link to="/"><span>FRESH SHOP</span></Link>
-                    </li>
+                    
+                    
                     <li>
                         <Link to="/all_articles">Toutes les annonces</Link>
                     </li>
@@ -26,6 +25,11 @@ const HeaderMenu = () => {
                         <Link to="/all_shops">Boutiques</Link>
                     </li>
                 </ul>
+
+                <div className="brand_logo">
+                    <Link  to="/"><span><img src={basket} alt=""/> FRESH SHOP</span></Link>
+                </div>
+                
                 <LoginNavigation/>
             </div>
             <Switch>
