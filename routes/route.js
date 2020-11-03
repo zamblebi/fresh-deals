@@ -1,21 +1,34 @@
-const {List} = require('../models/listArticles')
-module.exports = (app, db) => {
+import express, { Router } from 'express'
+import bodyParser from 'body-parser'
+import Article from '../models/dbModel.js';
+
+
+
+const router = Router();
+const app = express();
+
+//middleware
+// app.use(bodyParser.urlencoded({ extended: true }))
+const jsonParser = bodyParser.json();
+
 //get exemple method
-    app.get('/articles', (req,res) => {
-        List.find().lean().exec(function(err, lists){
-            if(err) throw err;
-            return res.send(JSON.stringify(lists))
-        })
-        // res.send("First page")
-    }),
-
-    app.get('/test', (req,res) => {
-        res.send("Second page")
+router.get('/v1/articles', (req,res) => {
+    Article.find((err,articles) => {
+        if(err) return console.log(err);
+        res.status(200).send(articles)
         
-    }),
-
-    app.post('/signup', (req,res) => {
-        res.send("Post successful")
     })
+    
+})
 
-}
+router.post('/v1/articles',jsonParser, (req,res) => {
+        console.log(req.body)
+        Article.create(req.body, (err, article)=> {
+            if(err) return handleError(err);
+            return res.send(article)
+        })
+   
+    
+})
+
+export default router;
