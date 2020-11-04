@@ -4,7 +4,7 @@ import  mongoose from 'mongoose'
 import apiV2 from './routes/route.js';
 
 const app = express();
-const port = 4005
+const port = process.env.PORT || 4005
 
 
 //Middleware

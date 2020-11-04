@@ -5,7 +5,6 @@ import Article from '../models/dbModel.js';
 
 
 const router = Router();
-const app = express();
 
 //middleware
 // app.use(bodyParser.urlencoded({ extended: true }))
@@ -22,8 +21,7 @@ router.get('/v1/articles', (req,res) => {
 })
 
 router.post('/v1/articles',jsonParser, (req,res) => {
-        console.log(req.body)
-        Article.create(req.body, (err, article)=> {
+    Article.create(req.body, (err, article)=> {
             if(err) return handleError(err);
             return res.send(article)
         })
