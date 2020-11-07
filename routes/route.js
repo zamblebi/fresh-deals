@@ -1,32 +1,17 @@
 import express, { Router } from 'express'
 import bodyParser from 'body-parser'
-import Article from '../models/dbModel.js';
-
+import {addArticle, getArticle} from '../controllers/article.controller.js'
 
 
 const router = Router();
 
 //middleware
-// app.use(bodyParser.urlencoded({ extended: true }))
+const urilencodedParser = bodyParser.urlencoded({ extended: true })
 const jsonParser = bodyParser.json();
 
 //get exemple method
-router.get('/v1/articles', (req,res) => {
-    Article.find((err,articles) => {
-        if(err) return console.log(err);
-        res.status(200).send(articles)
-        
-    })
-    
-})
+router.get('/v1/articles', getArticle)
 
-router.post('/v1/articles',jsonParser, (req,res) => {
-    Article.create(req.body, (err, article)=> {
-            if(err) return handleError(err);
-            return res.send(article)
-        })
-   
-    
-})
+router.post('/v1/articles',jsonParser, addArticle)
 
 export default router;
